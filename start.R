@@ -8,7 +8,7 @@ cat("\014");
 print(paste("Current working directory:", getwd()));
 
 # Process all steps
-source("Source/0_ProcessAll.R");
+source("Source/_ProcessAll.R");
 
 # Exiting
 print("Analysis finished.")
