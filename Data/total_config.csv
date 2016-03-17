@@ -1,0 +1,5 @@
+name,friendlyname,type,levels,normalise,modeltarget,modelfeature,tuningfeature
+id,ID,int,,FALSE,FALSE,FALSE,FALSE
+feature,Feature,int,,FALSE,FALSE,TRUE,FALSE
+feature2,Feature 2,int,,FALSE,FALSE,TRUE,TRUE
+target,Target,logical,,FALSE,TRUE,FALSE,FALSE

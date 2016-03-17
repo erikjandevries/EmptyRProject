@@ -30,18 +30,21 @@ project_ensure_folder(project_parameters$folders$rds);
 
 # Data files
 project_parameters$files <- list(
-    train = "train.csv"
-  , valid = "valid.csv"
-  , test  = "test.csv"
-  , total = "total.csv"
+    total        = "total.csv"
+  , total_config = "total_config.csv"
+  );
 
-  , trainCleaned = "trainCleaned.csv"
-  , validCleaned = "validCleaned.csv"
-  , testCleaned  = "testCleaned.csv"
-  , totalCleaned = "totalCleaned.csv"
+# RDS files
+project_parameters$rds <- list(
+    total   = "total.rds"
+  , imputed = "imputed.rds"
   );
 
 project_parameters$splitRatios <- list(
     train = 0.6
   , valid = 0.2
   , test  = 0.2);
+
+# Shiny Parameters
+project_parameters$shiny <- list();
+project_parameters$shiny$port <- 7861;

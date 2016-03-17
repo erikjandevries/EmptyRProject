@@ -11,4 +11,10 @@ print(paste("Current working directory:", getwd()));
 source("Source/_ProcessAll.R");
 
 # Exiting
-print("Analysis finished.")
+print("Finished.")
+
+
+runApp('Source/6_Visualise/Shiny_app'
+      , port=project_parameters$shiny$port
+      , launch.browser=FALSE
+      );
