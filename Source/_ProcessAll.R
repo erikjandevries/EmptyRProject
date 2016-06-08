@@ -32,12 +32,23 @@ project_timelog[[7]]$time = system.time(source("Source/7_Finalise/_Finalise.R"))
 print("");
 print("Project Timelog");
 
-n <- list();
-t <- list();
+tl <- data.frame(stepnr=c(), step=c(), user=c(), system=c(), elapsed=c());
 for (i in 1:length(project_timelog)) {
-  n <- rbind(n, paste("Step", i, ":", project_timelog[[i]]$name))
-  t <- rbind(t, project_timelog[[i]]$time);
-}; rm(i);
-print(cbind(n,t));
+  tli <- data.frame(  stepnr=c(i)
+                    , step=c(project_timelog[[i]]$name)
+                    , user=c(round(project_timelog[[i]]$time[[1]],3))
+                    , system=c(round(project_timelog[[i]]$time[[2]],3))
+                    , elapsed=c(round(project_timelog[[i]]$time[[3]],3))
+                    );
+  tl <- rbind(tl, tli);
+}; rm(i, tli);
+
+print(tl);
 print("");
-rm(n,t);
+
+outputFolder <- project_parameters$folders$output
+project_ensure_folder(outputFolder);
+fileName <- paste(outputFolder, "project_timelog.csv", sep="/");
+write.csv(tl, file = fileName, row.names = FALSE);
+
+rm(tl);
