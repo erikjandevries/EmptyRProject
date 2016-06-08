@@ -5,6 +5,7 @@ required.packages <- c(
   , "mice"                  # impute
   , "caTools"               # sample.split
   , "scales"                # percent formatting
+  , "ggplot2"
 
   # , "ROCR"                # auc
   # , "rpart"               # CART
@@ -17,7 +18,6 @@ required.packages <- c(
   # , "SnowballC"           #
   # , "RTextTools"          # poly-grams
   # , "flexclust"           # clustering
-  # , "ggplot2"
   # , "dplyr"
   # , "reshape2"            # melt
   # , "lubridate"

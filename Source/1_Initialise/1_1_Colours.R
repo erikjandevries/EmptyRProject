@@ -5,11 +5,11 @@ project_parameters$colours <- list(
   , light1  = "#ffffff"   # white
   , dark2   = "#000040"   # dark blue
   , light2  = "#f6f6f6"   # light gray
-  # , accent1 = "#"   #
-  # , accent2 = "#"   #
-  # , accent3 = "#"   #
-  # , accent4 = "#"   #
-  # , accent5 = "#"   #
+  , accent1 = "#006ec3"   #
+  , accent2 = "#d24625"   #
+  , accent3 = "#1f6e43"   #
+  , accent4 = "#7d3778"   #
+  , accent5 = "#295598"   #
   # , accent6 = "#"   #
   # , accent7 = "#"   #
 
