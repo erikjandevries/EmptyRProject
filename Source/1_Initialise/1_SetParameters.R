@@ -47,8 +47,7 @@ project_parameters$splitRatios <- list(
 
 # Visualisation settings
 source("Source/1_Initialise/1_1_Colours.R");
-
-
+project_parameters$DPI <- 600;
 
 # Shiny Parameters
 project_parameters$shiny <- list();
