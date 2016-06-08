@@ -45,6 +45,11 @@ project_parameters$splitRatios <- list(
   , valid = 0.2
   , test  = 0.2);
 
+# Visualisation settings
+source("Source/1_Initialise/1_1_Colours.R");
+
+
+
 # Shiny Parameters
 project_parameters$shiny <- list();
 project_parameters$shiny$port <- 7861;
