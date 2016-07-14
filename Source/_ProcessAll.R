@@ -6,7 +6,7 @@ source("Source/5_Analyse/_Analyse.R");
 source("Source/6_Visualise/_Visualise.R");
 source("Source/7_Finalise/_Finalise.R");
 
-# loginfo("Starting Shiny App.")
+# loginfo("Starting Shiny App")
 # runApp('Source/8_Shiny'
 #       , port=project_parameters$shiny$port
 #       , launch.browser=FALSE

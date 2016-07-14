@@ -10,3 +10,4 @@ data analysis project. It includes the following basic steps:
 5. Perform the analysis
 6. Visualise the results
 7. Finalise the project
+8. Start a Shiny app (optional)
