@@ -1,3 +1,5 @@
+loginfo("Loading packages")
+
 packages <- rownames(installed.packages());
 
 required.packages <- c(
@@ -32,5 +34,5 @@ for (p in required.packages) {
 rm(packages, required.packages);
 
 
-# print("Loading custom functions...");
+# loginfo("Loading custom functions");
 # source("Source/2_LoadLibraries/YMDtoDate.R")

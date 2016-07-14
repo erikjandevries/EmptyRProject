@@ -1,4 +1,4 @@
-print("Loading the data...");
+loginfo("Loading the data");
 
 # The following strings are considered NA
 NAStrings <- c("NA", "", "-", "NULL");

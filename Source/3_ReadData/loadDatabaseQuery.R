@@ -5,15 +5,15 @@ loadDatabaseQuery <- function(  odbcConnectionString
                              ) {
   if (printTimer) ptm <- proc.time();
   if (file.exists(rdsFileName)) {
-    print(paste("Loading previously cached RDS:", rdsFileName));
+    logwarn(paste("Loading previously cached RDS:", rdsFileName));
     obj <- readRDS(rdsFileName);
   } else {
-    print(paste("Loading data from query...", ""));
+    loginfo(paste("Loading data from query...", ""));
     dbhandle = odbcDriverConnect(odbcConnectionString);
     obj <- sqlQuery(dbhandle, query = query);
     odbcClose(dbhandle);
     if (rdsFileName != "") {
-      print(paste("Saving RDS", rdsFileName));
+      loginfo(paste("Saving RDS", rdsFileName));
       saveRDS(obj, rdsFileName);
     }
   }

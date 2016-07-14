@@ -1,1 +1,1 @@
-print("Finalising the results...");
+loginfo("Finalising the results");

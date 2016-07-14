@@ -1,4 +1,4 @@
-print("Splitting data into training, validation and test data sets...");
+loginfo("Splitting data into training, validation and test data sets");
 
 # If we need a validation data set:
 if (project_parameters$splitRatios$valid > 0) {

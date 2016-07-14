@@ -5,9 +5,10 @@ loadSampleOfDataFile <- function(fileName, nlines=NULL, rdsFileName
                                 , sep=NULL, quote=NULL, dec=NULL) {
   if (printTimer) ptm <- proc.time();
   if (file.exists(rdsFileName)) {
-    print(paste("Loading previously cached RDS:", rdsFileName));
+    logwarn(paste("Loading previously cached RDS:", rdsFileName));
     obj <- readRDS(rdsFileName);
   } else {
+    loginfo(paste("Loading sample from CSV:", fileName));
     # Detect data model
     model <- detect_dm_csv(fileName, header=TRUE);
 
@@ -22,10 +23,11 @@ loadSampleOfDataFile <- function(fileName, nlines=NULL, rdsFileName
       # Read from file using indexing
       obj <- laf[i, ]
       if (rdsFileName != "") {
-        print(paste("Saving RDS", rdsFileName));
+        loginfo(paste("Saving RDS", rdsFileName));
         saveRDS(obj, rdsFileName);
       }
     } else {
+      logfatal("Not enough records to sample from...");
       stop("Not enough records to sample from...");
     }
     rm(i);

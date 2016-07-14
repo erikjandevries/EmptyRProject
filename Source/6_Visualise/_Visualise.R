@@ -1,4 +1,4 @@
-print("Visualising the results...");
+loginfo("Visualising the results");
 
 outputFolder <- paste(project_parameters$folders$output, "Visualisation", sep="/");
 project_ensure_folder(outputFolder);
@@ -18,3 +18,6 @@ png(filename = fileName
 );
 print(the_plot);
 dev.off();
+
+
+rm(n_colours, the_plot);
