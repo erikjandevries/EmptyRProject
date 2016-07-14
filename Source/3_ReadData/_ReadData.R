@@ -4,8 +4,9 @@ loginfo("Loading the data");
 NAStrings <- c("NA", "", "-", "NULL");
 
 source("Source/3_ReadData/loadDataFile.R")
-source("Source/3_ReadData/loadDatabaseQuery.R")
 source("Source/3_ReadData/loadSampleOfDataFile.R")
+source("Source/3_ReadData/loadDatabaseQuery.R")
+source("Source/3_ReadData/loadOracleDatabaseQuery.R")
 
 
 
@@ -21,6 +22,21 @@ rm(csvTotal, rdsTotal, csvTotalConfig);
 
 
 
+# connect.string <- paste0(
+#   "(DESCRIPTION=",
+#     "(ADDRESS=(PROTOCOL=tcp) ",
+#              "(HOST=", project_parameters$db$oracle.host, ") ",
+#              "(PORT=", project_parameters$db$oracle.port, ")",
+#     ")",
+#     "(CONNECT_DATA=(SERVICE_NAME=", project_parameters$db$oracle.svc, "))",
+#   ")"
+# );
+# data_all <- loadOracleDatabaseQuery(  oracle.username
+#                                     , oracle.password
+#                                     , connect.string
+#                                     , query_data_all
+#                                     , rdsFileName = rds_data_all_oracle
+# );
 
 
 # Apply configuration specified in total_config file

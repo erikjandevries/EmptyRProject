@@ -9,6 +9,9 @@ required.packages <- c(
   , "scales"                # percent formatting
   , "ggplot2"
 
+  # , "ROracle"               # Connect to Oracle SQL databases
+  # , "RODBC"                 # Connect to Microsoft SQL Server databases
+  
   # , "ROCR"                # auc
   # , "rpart"               # CART
   # , "rpart.plot"          # plot CART
