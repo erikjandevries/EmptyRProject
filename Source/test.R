@@ -1,1 +1,1 @@
-print("Testing...");
+loginfo("Testing...");

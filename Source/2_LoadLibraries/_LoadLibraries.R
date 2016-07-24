@@ -1,3 +1,5 @@
+loginfo("Loading packages")
+
 packages <- rownames(installed.packages());
 
 required.packages <- c(
@@ -5,7 +7,11 @@ required.packages <- c(
   , "mice"                  # impute
   , "caTools"               # sample.split
   , "scales"                # percent formatting
+  , "ggplot2"
 
+  # , "ROracle"               # Connect to Oracle SQL databases
+  # , "RODBC"                 # Connect to Microsoft SQL Server databases
+  
   # , "ROCR"                # auc
   # , "rpart"               # CART
   # , "rpart.plot"          # plot CART
@@ -17,7 +23,6 @@ required.packages <- c(
   # , "SnowballC"           #
   # , "RTextTools"          # poly-grams
   # , "flexclust"           # clustering
-  # , "ggplot2"
   # , "dplyr"
   # , "reshape2"            # melt
   # , "lubridate"
@@ -32,5 +37,5 @@ for (p in required.packages) {
 rm(packages, required.packages);
 
 
-# print("Loading custom functions...");
+# loginfo("Loading custom functions");
 # source("Source/2_LoadLibraries/YMDtoDate.R")
