@@ -1,5 +1,6 @@
 # Clear the Global Environment
 rm(list = ls());
+gc();
 # Clear the console screen
 cat("\014");
 # Set working directory
