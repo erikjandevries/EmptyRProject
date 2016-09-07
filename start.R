@@ -1,3 +1,6 @@
+######## Initialisation ########
+# Close any open devices (if an error occurs while saving an image, a device may be left open)
+for (d in dev.list()) { dev.off(); }; rm(d);
 # Clear the Global Environment
 rm(list = ls());
 gc();
@@ -18,7 +21,7 @@ project_ensure_folder <- function(folderName) {
 }
 
 
-# Parameters
+######## Parameters ########
 project_parameters <- list();
 # Date time stamp
 project_parameters$DTS  <- as.POSIXlt(Sys.time(), "UTC");
@@ -37,7 +40,8 @@ project_parameters$logging <- list(
   level = 'INFO'
 );
 
-# Logging - install.packages("logging")
+######## Logging ########
+# install.packages("logging")
 library(logging);
 basicConfig(level = project_parameters$logging$level);
 addHandler(  writeToFile
@@ -49,7 +53,7 @@ loginfo(paste("Logging started at level:   ", project_parameters$logging$level))
 loginfo(paste0("Current working directory:   \"", getwd(), "\""));
 
 
-# Process all steps
+######## Process all steps ########
 source("Source/_ProcessAll.R");
 
 # Exiting
