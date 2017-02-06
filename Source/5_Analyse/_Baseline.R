@@ -1,6 +1,6 @@
 loginfo("Computing Baseline results for the analysis");
 
-if (project_parameters$splitRatios$valid > 0) {
+if (project_config$splitRatios$valid > 0) {
   baselineResult <- list();
   totalTable <- table(total=total$target);
   trainTable <- table(train=train$target);

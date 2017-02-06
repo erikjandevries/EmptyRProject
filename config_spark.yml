@@ -1,0 +1,67 @@
+default:
+  spark.app.name: MyApp
+  spark.master: yarn-client
+  spark.home: /opt/mapr/spark/spark-2.0.0-bin-2.2.0
+  spark.version: 2.0.0
+  spark.yarn.queue: development
+  spark.executor.instances: 4
+  spark.executor.cores: 2
+  spark.executor.memory: 4g
+
+  DTS: !expr DTS
+  DTSName: !expr format(DTS, "%Y-%m-%dT%H-%M-%SZ")
+  seed: 1234
+
+  splitRatios:
+    train: 0.6
+    valid: 0.2
+    test:  0.2
+  
+  dpi: 600
+  colours: !expr config::get(file = "colours.yml")
+  
+  folders:
+    output: !expr paste(getwd(), "development", format(DTS, "%Y-%m-%dT%H-%M-%SZ"), sep="/")
+    data: Data
+    rds: RDS
+    
+  files:
+    log: Rlog.log
+    total: total.csv
+    total_config: total_config.csv
+  
+  rds:
+    total: total.rds
+    imputed: total_imputed.rds
+
+  logging:
+    level: DEBUG
+
+  shiny:
+    port: 7861
+
+  copy.source.to.output: TRUE
+
+spark-1.6:
+  spark.home: /opt/mapr/spark/spark-1.6.1
+  spark.version: 1.6.1
+
+acceptance:
+  spark.yarn.queue: acceptance
+  sparklyr.gateway.port: 8881
+
+  folders:
+    output: !expr paste(getwd(), "acceptance", sep="/")
+  logging:
+    level: INFO
+  copy.source.to.output: FALSE
+
+production:
+  spark.yarn.queue: production
+  sparklyr.gateway.port: 8881
+
+  folders:
+    output: !expr paste(getwd(), "production", sep="/")
+  logging:
+    level: INFO
+  copy.source.to.output: FALSE

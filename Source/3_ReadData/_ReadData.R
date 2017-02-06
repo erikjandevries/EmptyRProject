@@ -10,10 +10,10 @@ source("Source/3_ReadData/loadOracleDatabaseQuery.R")
 
 
 
-csvTotal <- paste(project_parameters$folders$data,  project_parameters$files$total, sep="/");
-rdsTotal <- paste(project_parameters$folders$rds,   project_parameters$rds$total,   sep="/");
+csvTotal <- paste(project_config$folders$data,  project_config$files$total, sep="/");
+rdsTotal <- paste(project_config$folders$rds,   project_config$rds$total,   sep="/");
 
-csvTotalConfig <- paste(project_parameters$folders$data, project_parameters$files$total_config,  sep="/");
+csvTotalConfig <- paste(project_config$folders$data, project_config$files$total_config,  sep="/");
 
 total <- loadDataFile(csvTotal, rdsFileName=rdsTotal);
 total_config <- loadDataFile(csvTotalConfig);
@@ -25,10 +25,10 @@ rm(csvTotal, rdsTotal, csvTotalConfig);
 # connect.string <- paste0(
 #   "(DESCRIPTION=",
 #     "(ADDRESS=(PROTOCOL=tcp) ",
-#              "(HOST=", project_parameters$db$oracle.host, ") ",
-#              "(PORT=", project_parameters$db$oracle.port, ")",
+#              "(HOST=", project_config$db$oracle.host, ") ",
+#              "(PORT=", project_config$db$oracle.port, ")",
 #     ")",
-#     "(CONNECT_DATA=(SERVICE_NAME=", project_parameters$db$oracle.svc, "))",
+#     "(CONNECT_DATA=(SERVICE_NAME=", project_config$db$oracle.svc, "))",
 #   ")"
 # );
 # data_all <- loadOracleDatabaseQuery(  oracle.username

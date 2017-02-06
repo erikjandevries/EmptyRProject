@@ -1,36 +1,25 @@
 loginfo("Setting parameters");
 
 # Setting seed for random number generator
-project_parameters$seed <- 1234;
-set.seed(project_parameters$seed);
-
-# Folders
-project_parameters$folders$data   <- "Data";
-project_parameters$folders$rds    <- "RDS";
-
-project_ensure_folder(project_parameters$folders$data);
-project_ensure_folder(project_parameters$folders$rds);
-
-# Data files
-project_parameters$files$total        <- "total.csv";
-project_parameters$files$total_config <- "total_config.csv";
-
-# RDS files
-project_parameters$rds <- list(
-    total   = "total.rds"
-  , imputed = "imputed.rds"
-);
-
-project_parameters$splitRatios <- list(
-    train = 0.6
-  , valid = 0.2
-  , test  = 0.2
-);
+set.seed(project_config$seed);
 
 # Visualisation settings
-source("Source/1_Initialise/1_1_Colours.R");
-project_parameters$DPI <- 600;
-
-# Shiny Parameters
-project_parameters$shiny <- list();
-project_parameters$shiny$port <- 7861;
+# Colour palettes
+project_config$palettes <- list(
+  chart = c(  project_config$colours$accent1
+            , project_config$colours$accent2
+            , project_config$colours$accent3
+            , project_config$colours$accent4
+            , project_config$colours$accent5
+            , project_config$colours$accent6
+            , project_config$colours$accent7
+  )
+  , twotone1 = colorRampPalette(c(
+      project_config$colours$accent1
+    , project_config$colours$accent2
+  ))
+  , twotone2 = colorRampPalette(c(
+      project_config$colours$accent3
+    , project_config$colours$accent4
+  ))
+);

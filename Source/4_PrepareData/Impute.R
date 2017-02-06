@@ -1,6 +1,6 @@
 loginfo("Imputing missing values");
 
-rdsImputed <- paste(project_parameters$folders$rds,   project_parameters$rds$imputed,   sep="/");
+rdsImputed <- paste(project_config$folders$rds,   project_config$rds$imputed,   sep="/");
 
 if (file.exists(rdsImputed)) {
   loginfo(paste("Loading previously cached RDS:", rdsImputed));
