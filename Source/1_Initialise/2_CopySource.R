@@ -5,7 +5,7 @@ file.copy(  from="Source"
           , recursive = TRUE
           , copy.mode = TRUE);
 
-flist <- c(  list.files(  getwd(), "^start.+[.]R$"
+flist <- c(  list.files(  getwd(), "^start.*[.]R$"
                           , full.names = TRUE
                           , ignore.case = TRUE)
            , list.files(  getwd(), "^.+[.]yml$"
