@@ -88,4 +88,9 @@ sqlc <- sqlContext(ss)
 source("Source/_ProcessAll.R");
 
 # Exiting
+logdebug("Stopping Spark job");
+spark_context(sc) %>% invoke("stop");
+logdebug("Disconnecting from Spark");
+spark_disconnect(sc);
+rm(sc, ss, sqlc, sconfig);
 loginfo("Finished")
