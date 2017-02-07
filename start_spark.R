@@ -92,5 +92,5 @@ logdebug("Stopping Spark job");
 spark_context(sc) %>% invoke("stop");
 logdebug("Disconnecting from Spark");
 spark_disconnect(sc);
-rm(sc, ss, sqlc, sconfig);
+rm(sc, ss, sqlc, project_config_spark);
 loginfo("Finished")
