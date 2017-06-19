@@ -3,20 +3,28 @@ loginfo("Loading the data");
 # The following strings are considered NA
 NAStrings <- c("NA", "", "-", "NULL");
 
-source("Source/3_ReadData/loadDataFile.R")
-source("Source/3_ReadData/loadSampleOfDataFile.R")
-source("Source/3_ReadData/loadDatabaseQuery.R")
-source("Source/3_ReadData/loadOracleDatabaseQuery.R")
-
+# source("Source/3_ReadData/loadDataFile.R")
+# source("Source/3_ReadData/loadSampleOfDataFile.R")
+# source("Source/3_ReadData/loadDatabaseQuery.R")
+# source("Source/3_ReadData/loadOracleDatabaseQuery.R")
 
 
 csvTotal <- paste(project_config$folders$data,  project_config$files$total, sep="/");
 rdsTotal <- paste(project_config$folders$rds,   project_config$rds$total,   sep="/");
-
 csvTotalConfig <- paste(project_config$folders$data, project_config$files$total_config,  sep="/");
 
-total <- loadDataFile(csvTotal, rdsFileName=rdsTotal);
-total_config <- loadDataFile(csvTotalConfig);
+total <- read.csv.cached(  rdsTotal
+                         , csvTotal
+                         , na.strings=NAStrings
+                         , encoding="UTF-8"
+                         , stringsAsFactors=FALSE)
+total_config <- read.csv(csvTotalConfig
+                         , na.strings=NAStrings
+                         , encoding="UTF-8"
+                         , stringsAsFactors=FALSE)
+
+# total <- loadDataFile(csvTotal, rdsFileName=rdsTotal);
+# total_config <- loadDataFile(csvTotalConfig);
 
 rm(csvTotal, rdsTotal, csvTotalConfig);
 

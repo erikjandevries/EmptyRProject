@@ -1,8 +1,6 @@
 loginfo("Loading packages")
 
-packages <- rownames(installed.packages());
-
-required.packages <- c(
+required_packages <- c(
     "shiny"                 # R web app
   , "mice"                  # impute
   , "caTools"               # sample.split
@@ -28,13 +26,12 @@ required.packages <- c(
   # , "lubridate"
 );
 
-for (p in required.packages) {
-  if (!(p %in% packages)) {
-    install.packages(p);
-  }
+install.packages.ifmissing(required_packages)
+
+for (p in required_packages) {
   library(p, character.only = TRUE);
 }; rm(p);
-rm(packages, required.packages);
+rm(required_packages);
 
 
 # loginfo("Loading custom functions");

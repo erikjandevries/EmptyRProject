@@ -11,24 +11,26 @@ cat("\014");
 # Set system path to include the correct version of the Oracle Instant Client
 # Sys.setenv("PATH" = paste0(Sys.getenv("PATH"), ";C:\\Program Files\\Oracle\\instantclient_12_1"));
 
+# Add the appropriate library location to the .libPaths()
+# .libPaths(c("/my/libPath", .libPaths()))
 
-# project functions
-project_ensure_folder <- function(folderName) {
-  ifelse(  !dir.exists(folderName)
-         , dir.create(folderName, recursive = TRUE)
-         , FALSE);
-}
+
+# install.packages("config")
+# install.packages("dstools.ej")
+# install.packages("logging")
+
+library(config);
+library(dstools.ej)
+library(logging);
+logReset();
 
 
 ######## Parameters ########
-# install.packages("config")
 # Sys.setenv(R_CONFIG_ACTIVE = "")
 # Sys.setenv(R_CONFIG_ACTIVE = "acceptance")
 # Sys.setenv(R_CONFIG_ACTIVE = "production")
-# Sys.getenv("R_CONFIG_ACTIVE")
 
 DTS <- as.POSIXlt(Sys.time(), "UTC");
-library(config);
 project_config   <- config::get(file = "config.yml", use_parent = FALSE);
 rm(DTS);
 
@@ -36,22 +38,23 @@ if (dir.exists(project_config$folders$output)) {
   unlink(project_config$folders$output, recursive = TRUE)
 }
 for (folder in project_config$folders) {
-  project_ensure_folder(folder);
+  ensure_folder(folder);
 }; rm(folder);
 
 
 ######## Logging ########
-# install.packages("logging")
-library(logging);
 basicConfig(level = project_config$logging$level);
 addHandler(  writeToFile
            , file   = paste(project_config$folders$output, project_config$files$log, sep="/")
            , level  = project_config$logging$level
            , logger = '');
 loginfo(paste0("Logging started at level:   ", project_config$logging$level));
-
-loginfo(paste0("Current working directory:  ", getwd()));
-
+loginfo(paste0("Working directory:          ", getwd()));
+if (Sys.getenv("R_CONFIG_ACTIVE") == "") {
+  loginfo(paste0("Configuration:              ", "default"));
+} else {
+  loginfo(paste0("Configuration:              ", Sys.getenv("R_CONFIG_ACTIVE")));
+}
 
 ######## Process all steps ########
 source("Source/_ProcessAll.R");

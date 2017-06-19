@@ -1,7 +1,7 @@
 loginfo("Visualising the results");
 
 outputFolder <- paste(project_config$folders$output, "Visualisation", sep="/");
-project_ensure_folder(outputFolder);
+ensure_folder(outputFolder);
 
 
 n_colours <- length(unique(total$target));

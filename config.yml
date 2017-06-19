@@ -13,8 +13,8 @@ default:
   
   folders:
     output: !expr paste(getwd(), "development", format(DTS, "%Y-%m-%dT%H-%M-%SZ"), sep="/")
+    rds: !expr paste(getwd(), "development", "RDS", sep="/")
     data: Data
-    rds: RDS
     
   files:
     log: Rlog.log
@@ -36,6 +36,7 @@ default:
 acceptance:
   folders:
     output: !expr paste(getwd(), "acceptance", sep="/")
+    rds: !expr paste(getwd(), "acceptance", "RDS", sep="/")
   logging:
     level: INFO
   copy.source.to.output: FALSE
@@ -43,6 +44,7 @@ acceptance:
 production:
   folders:
     output: !expr paste(getwd(), "production", sep="/")
+    rds: !expr paste(getwd(), "production", "RDS", sep="/")
   logging:
     level: INFO
   copy.source.to.output: FALSE
