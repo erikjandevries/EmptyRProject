@@ -1,5 +1,11 @@
 # EmptyRProject
 
+## Requirements
+
+This project requires the [dstools.ej](https://github.com/erikjandevries/r.dstools.ej) package (version 0.2):
+
+## Getting Started
+
 This is an empty starter project for R, setting up the basic structure of a
 data analysis project. It includes the following basic steps:
 
