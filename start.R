@@ -3,12 +3,12 @@
 # Sys.setenv(R_CONFIG_ACTIVE = "production")
 
 library(dstools.ej)
+library(logging)
 project_restart()
+project_copy_source()
 
-project_section("Initialisation")
+project_section("Initialisation", folder = "")
 source("Source/1_Initialise/1_SetParameters.R");
-source("Source/1_Initialise/2_CopySource.R");
-
 source("Source/2_LoadLibraries/_LoadLibraries.R");
 
 project_section("Reading data")

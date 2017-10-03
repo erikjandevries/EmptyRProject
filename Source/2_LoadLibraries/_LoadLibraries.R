@@ -1,15 +1,15 @@
 loginfo("Loading packages")
 
-required_packages <- c(
+pkgs <- c(
     "shiny"                 # R web app
   , "mice"                  # impute
   , "caTools"               # sample.split
   , "scales"                # percent formatting
-  , "ggplot2"
+  , "ggplot2"               # visualisations
 
   # , "ROracle"               # Connect to Oracle SQL databases
   # , "RODBC"                 # Connect to Microsoft SQL Server databases
-  
+
   # , "ROCR"                # auc
   # , "rpart"               # CART
   # , "rpart.plot"          # plot CART
@@ -24,15 +24,6 @@ required_packages <- c(
   # , "dplyr"
   # , "reshape2"            # melt
   # , "lubridate"
-);
+)
 
-install.packages.ifmissing(required_packages)
-
-for (p in required_packages) {
-  library(p, character.only = TRUE);
-}; rm(p);
-rm(required_packages);
-
-
-# loginfo("Loading custom functions");
-# source("Source/2_LoadLibraries/YMDtoDate.R")
+project_packages(pkgs)
