@@ -27,3 +27,4 @@ pkgs <- c(
 )
 
 project_packages(pkgs)
+rm(pkgs)
